@@ -30,6 +30,7 @@ Check more blogs and websites at https://www.javaguides.net/2019/07/best-spring-
 * <a href="https://www.youtube.com/channel/UC2KfmYEM4KCuA1ZurravgYw" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">@ Amigoscode</a>
 * <a href="https://www.youtube.com/channel/UC7yfnfvEUlXUIfm8rGLwZdA" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">@ SpringDeveloper</a>
 * <a href="https://www.youtube.com/channel/UCLz7LG4YVi7_iyk4yOARcxA" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">@ in28minutes</a>
+* <a href="https://www.youtube.com/@devtiro" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">@ Devtiro</a>
 
 Check out more at https://www.javaguides.net/2020/06/best-youtube-channels-to-learn-spring-boot.html
  
