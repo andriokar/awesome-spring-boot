@@ -22,4 +22,9 @@ public class SoftwareEngineerService {
     public SoftwareEngineer insertSoftwareEngineer(SoftwareEngineer softwareEngineer) {
         return softwareEngineerRepository.save(softwareEngineer);
     }
+
+    public SoftwareEngineer getSoftwareEngineerById(Integer id) {
+        return softwareEngineerRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Software engineer with %d does not exist".formatted(id)));
+    }
 }
