@@ -2,9 +2,7 @@ package com.andriokar.controllers;
 
 import com.andriokar.entities.SoftwareEngineer;
 import com.andriokar.services.SoftwareEngineerService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +19,12 @@ public class SoftwareEngineerController {
     @GetMapping
     public List<SoftwareEngineer> getEngineers() {
         return softwareEngineerService.getSoftwareEngineers();
+    }
+
+    @PostMapping
+    public SoftwareEngineer addNewSoftwareEngineer(
+            @RequestBody SoftwareEngineer softwareEngineer
+    ) {
+        return softwareEngineerService.insertSoftwareEngineer(softwareEngineer);
     }
 }
