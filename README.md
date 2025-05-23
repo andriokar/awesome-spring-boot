@@ -19,20 +19,17 @@ A curated list of awesome blogs, tutorials, courses, and resources for the Sprin
 * <a href="https://www.concretepage.com/spring-boot/" target="_blank">ConcretePage.com</a> - Spring Boot and Java Tutorials 
 * <a href="https://www.sivalabs.in/categories/springboot/" target="_blank">SivaLabs</a> - Tutorials about Spring boot, microservices.
 
-Check more blogs and websites at https://www.javaguides.net/2019/07/best-spring-boot-tutorials.html
-
 # Best YouTube Channels to learn Spring Boot
-* <a href="https://www.youtube.com/c/JavaGuides/playlists" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">@ Java Guides</a>
-* <a href="https://www.youtube.com/channel/UCORuRdpN2QTCKnsuEaeK-kQ" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">@ Java Techie</a>
-* <a href="https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q" style="background: transparent; color: #3d85c6;" target="_blank">@ Java Brains</a>
-* <a href="https://www.youtube.com/channel/UC59K-uG2A5ogwIrHw4bmlEg" style="background: transparent; color: #3d85c6;" target="_blank">@ Telusko</a>
-* <a href="https://www.youtube.com/channel/UCB12jjYsYv-eipCvBDcMbXw" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">@ Tech Primers</a>
-* <a href="https://www.youtube.com/channel/UC2KfmYEM4KCuA1ZurravgYw" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">@ Amigoscode</a>
-* <a href="https://www.youtube.com/channel/UC7yfnfvEUlXUIfm8rGLwZdA" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">@ SpringDeveloper</a>
-* <a href="https://www.youtube.com/channel/UCLz7LG4YVi7_iyk4yOARcxA" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">@ in28minutes</a>
-* <a href="https://www.youtube.com/@devtiro" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">@ Devtiro</a>
-
-Check out more at https://www.javaguides.net/2020/06/best-youtube-channels-to-learn-spring-boot.html
+* <a href="https://www.youtube.com/channel/UC2KfmYEM4KCuA1ZurravgYw" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">Amigoscode</a>
+* <a href="https://www.youtube.com/@devtiro" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">Devtiro</a>
+* <a href="https://www.youtube.com/@freecodecamp" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">freeCodeCamp.org</a>
+* <a href="https://www.youtube.com/channel/UCLz7LG4YVi7_iyk4yOARcxA" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">in28minutes</a>
+* <a href="https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q" style="background: transparent; color: #3d85c6;" target="_blank">Java Brains</a>
+* <a href="https://www.youtube.com/c/JavaGuides/playlists" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">Java Guides</a>
+* <a href="https://www.youtube.com/channel/UCORuRdpN2QTCKnsuEaeK-kQ" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">Java Techie</a>
+* <a href="https://www.youtube.com/channel/UC7yfnfvEUlXUIfm8rGLwZdA" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">SpringDeveloper</a>
+* <a href="https://www.youtube.com/channel/UCB12jjYsYv-eipCvBDcMbXw" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">Tech Primers</a>
+* <a href="https://www.youtube.com/channel/UC59K-uG2A5ogwIrHw4bmlEg" style="background: transparent; color: #3d85c6;" target="_blank">Telusko</a>
  
 # Best Spring Boot Books
 * <a href="https://www.amazon.com/Learning-Spring-Boot-2-0-microservices/dp/1786463784" target="_blank">Learning Spring Boot 2.0 - Second Edition</a>
@@ -40,8 +37,6 @@ Check out more at https://www.javaguides.net/2020/06/best-youtube-channels-to-le
 * <a href="https://www.amazon.com/Mastering-Spring-Boot-2-0-cloud-native/dp/1787127567" target="_blank">Mastering Spring Boot 2.0</a>
 * <a href="https://www.amazon.in/Spring-Microservices-Action-John-Carnell/dp/1617293989" target="_blank">Spring Microservices in Action</a>
 * <a href="https://www.amazon.in/Learn-Microservices-Spring-Boot-Practical/dp/1484231643" target="_blank">Learn Microservices with Spring Boot</a>
-
-Check out more Spring boot books at https://www.javaguides.net/2019/11/best-spring-boot-books.html
 
 # Free Spring Boot Projects for Learning Purposes
 * <a href="https://www.javaguides.net/2018/10/free-open-source-projects-using-spring-boot.html" target="_blank">20+ Free Open Source Projects Using Spring Boot</a>
