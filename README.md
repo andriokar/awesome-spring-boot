@@ -27,6 +27,7 @@ A curated list of awesome blogs, tutorials, courses, and resources for the Sprin
 * <a href="https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q" style="background: transparent; color: #3d85c6;" target="_blank">Java Brains</a>
 * <a href="https://www.youtube.com/c/JavaGuides/playlists" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">Java Guides</a>
 * <a href="https://www.youtube.com/channel/UCORuRdpN2QTCKnsuEaeK-kQ" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">Java Techie</a>
+* <a href="https://www.youtube.com/@MarcoCodes" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">Marco Codes</a>
 * <a href="https://www.youtube.com/channel/UC7yfnfvEUlXUIfm8rGLwZdA" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">SpringDeveloper</a>
 * <a href="https://www.youtube.com/channel/UCB12jjYsYv-eipCvBDcMbXw" style="background: transparent; color: #3d85c6; text-decoration-line: none;" target="_blank">Tech Primers</a>
 * <a href="https://www.youtube.com/channel/UC59K-uG2A5ogwIrHw4bmlEg" style="background: transparent; color: #3d85c6;" target="_blank">Telusko</a>
