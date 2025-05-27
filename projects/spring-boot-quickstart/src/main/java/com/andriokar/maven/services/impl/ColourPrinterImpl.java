@@ -6,9 +6,9 @@ import com.andriokar.maven.services.GreenPrinter;
 import com.andriokar.maven.services.RedPrinter;
 
 public class ColourPrinterImpl implements ColourPrinter {
-    private RedPrinter redPrinter;
-    private BluePrinter bluePrinter;
-    private GreenPrinter greenPrinter;
+    private final RedPrinter redPrinter;
+    private final BluePrinter bluePrinter;
+    private final GreenPrinter greenPrinter;
 
     public ColourPrinterImpl(
             RedPrinter redPrinter, BluePrinter bluePrinter, GreenPrinter greenPrinter) {
