@@ -4,7 +4,9 @@ import com.andriokar.maven.services.BluePrinter;
 import com.andriokar.maven.services.ColourPrinter;
 import com.andriokar.maven.services.GreenPrinter;
 import com.andriokar.maven.services.RedPrinter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ColourPrinterImpl implements ColourPrinter {
     private final RedPrinter redPrinter;
     private final BluePrinter bluePrinter;
