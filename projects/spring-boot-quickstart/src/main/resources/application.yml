@@ -1,2 +1,7 @@
 server:
   port: 8282
+
+pizza:
+  sauce: bbq
+  topping: chicken
+  crust: stuffed
