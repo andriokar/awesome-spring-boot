@@ -5,3 +5,10 @@ pizza:
   sauce: bbq
   topping: chicken
   crust: stuffed
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
