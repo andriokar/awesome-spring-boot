@@ -1,9 +1,9 @@
-package com.andriokar.database.dao;
+package com.andriokar.database.dao.impl;
 
-import com.andriokar.database.dao.impl.AuthorDaoImpl;
 import com.andriokar.database.domain.Author;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -34,6 +34,16 @@ public class AuthorDaoImplTests {
         verify(jdbcTemplate).update(
                 eq("INSERT INTO authors (id, name, age) VALUES (?, ?, ?)"),
                 eq(1L), eq("Abigail Rose"), eq(80)
+        );
+    }
+
+    @Test
+    public void testThatFindOneGeneratesTheCorrectSql() {
+        underTest.findOne(1L);
+        verify(jdbcTemplate).query(
+                eq("SELECT id, name, age FROM authors WHERE id = ? LIMIT 1"),
+                ArgumentMatchers.<AuthorDaoImpl.AuthorRowMapper>any(),
+                eq(1L)
         );
     }
 }
