@@ -35,7 +35,7 @@ public final class TestDataUtil {
         return Book.builder()
                 .isbn("978-1-2345-6789-0")
                 .title("The Shadow in the Attic")
-                .authorId(1L)
+                .author(createTestAuthorA())
                 .build();
     }
 
@@ -43,7 +43,7 @@ public final class TestDataUtil {
         return Book.builder()
                 .isbn("978-1-2345-6789-1")
                 .title("Beyond the Horizon")
-                .authorId(1L)
+                .author(createTestAuthorB())
                 .build();
     }
 
@@ -51,7 +51,7 @@ public final class TestDataUtil {
         return Book.builder()
                 .isbn("978-1-2345-6789-2")
                 .title("The Last Ember")
-                .authorId(1L)
+                .author(createTestAuthorC())
                 .build();
     }
 }
