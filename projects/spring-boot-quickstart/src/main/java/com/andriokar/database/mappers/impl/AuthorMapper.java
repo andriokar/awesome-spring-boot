@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AuthorMapperImpl implements Mapper<AuthorEntity, AuthorDto> {
+public class AuthorMapper implements Mapper<AuthorEntity, AuthorDto> {
 
     @Autowired
     private final ModelMapper modelMapper;
 
-    public AuthorMapperImpl(ModelMapper modelMapper) {
+    public AuthorMapper(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
 
