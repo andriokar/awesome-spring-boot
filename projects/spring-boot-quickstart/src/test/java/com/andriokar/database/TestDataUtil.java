@@ -1,5 +1,7 @@
 package com.andriokar.database;
 
+import com.andriokar.database.domain.dto.AuthorDto;
+import com.andriokar.database.domain.dto.BookDto;
 import com.andriokar.database.domain.entities.AuthorEntity;
 import com.andriokar.database.domain.entities.BookEntity;
 
@@ -28,11 +30,19 @@ public final class TestDataUtil {
                 .build();
     }
 
-    public static BookEntity createTestBookA(final AuthorEntity authorEntity) {
+    public static BookEntity createTestBookEntityA(final AuthorEntity authorEntity) {
         return BookEntity.builder()
                 .isbn("978-1-2345-6789-0")
                 .title("The Shadow in the Attic")
                 .authorEntity(authorEntity)
+                .build();
+    }
+
+    public static BookDto createTestBookDtoA(final AuthorDto authorDto) {
+        return BookDto.builder()
+                .isbn("978-1-2345-6789-0")
+                .title("The Shadow in the Attic")
+                .authorDto(authorDto)
                 .build();
     }
 
