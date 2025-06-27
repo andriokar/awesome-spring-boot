@@ -66,4 +66,60 @@ public class AuthorControllerIntegrationTests {
                 MockMvcResultMatchers.jsonPath("$.age").value(testAuthorA.getAge())
         );
     }
+
+    @Test
+    public void testThatListAuthorsSuccessfullyReturnsHttp200OK() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/authors")
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andExpect(
+                MockMvcResultMatchers.status().isOk()
+        );
+    }
+
+    @Test
+    public void testThatListAuthorsSuccessfullyReturnsListOfAuthors() throws Exception {
+        AuthorEntity testAuthorA = TestDataUtil.createTestAuthorA();
+        testAuthorA.setId(null);
+        String testAuthorAJson = objectMapper.writeValueAsString(testAuthorA);
+        mockMvc.perform(
+                MockMvcRequestBuilders.post("/authors")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(testAuthorAJson)
+        );
+
+        AuthorEntity testAuthorB = TestDataUtil.createTestAuthorB();
+        testAuthorA.setId(null);
+        String testAuthorBJson = objectMapper.writeValueAsString(testAuthorB);
+        mockMvc.perform(
+                MockMvcRequestBuilders.post("/authors")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(testAuthorBJson)
+        );
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/authors")
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[0].id").isNumber()
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[0].name").value(testAuthorA.getName())
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[0].name").isString()
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[0].age").isNumber()
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[0].age").value(testAuthorA.getAge())
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[1].id").isNumber()
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[1].name").value(testAuthorB.getName())
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[1].name").isString()
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[1].age").isNumber()
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[1].age").value(testAuthorB.getAge())
+        );
+    }
 }
