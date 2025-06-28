@@ -2,6 +2,7 @@ package com.andriokar.database.controllers;
 
 import com.andriokar.database.TestDataUtil;
 import com.andriokar.database.domain.entities.AuthorEntity;
+import com.andriokar.database.services.AuthorService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,9 +26,12 @@ public class AuthorControllerIntegrationTests {
 
     private final ObjectMapper objectMapper;
 
+    private final AuthorService authorService;
+
     @Autowired
-    public AuthorControllerIntegrationTests(MockMvc mockMvc) {
+    public AuthorControllerIntegrationTests(MockMvc mockMvc, AuthorService authorService) {
         this.mockMvc = mockMvc;
+        this.authorService = authorService;
         this.objectMapper = new ObjectMapper();
     }
 
@@ -101,25 +105,71 @@ public class AuthorControllerIntegrationTests {
                 MockMvcRequestBuilders.get("/authors")
                         .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].id").isNumber()
+                MockMvcResultMatchers.jsonPath("$[0]id").isNumber()
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].name").value(testAuthorA.getName())
+                MockMvcResultMatchers.jsonPath("$[0]name").value(testAuthorA.getName())
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].name").isString()
+                MockMvcResultMatchers.jsonPath("$[0]name").isString()
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].age").isNumber()
+                MockMvcResultMatchers.jsonPath("$[0]age").isNumber()
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].age").value(testAuthorA.getAge())
+                MockMvcResultMatchers.jsonPath("$[0]age").value(testAuthorA.getAge())
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[1].id").isNumber()
+                MockMvcResultMatchers.jsonPath("$[1]id").isNumber()
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[1].name").value(testAuthorB.getName())
+                MockMvcResultMatchers.jsonPath("$[1]name").value(testAuthorB.getName())
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[1].name").isString()
+                MockMvcResultMatchers.jsonPath("$[1]name").isString()
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[1].age").isNumber()
+                MockMvcResultMatchers.jsonPath("$[1]age").isNumber()
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[1].age").value(testAuthorB.getAge())
+                MockMvcResultMatchers.jsonPath("$[1]age").value(testAuthorB.getAge())
+        );
+    }
+
+    @Test
+    public void testThatFindAuthorsSuccessfullyReturnsHttp302OKIfAuthorExists() throws Exception {
+        AuthorEntity testAuthorA = TestDataUtil.createTestAuthorA();
+        testAuthorA.setId(null);
+        AuthorEntity savedTestAuthor = authorService.createAuthor(testAuthorA);
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/authors/" + savedTestAuthor.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andExpect(
+                MockMvcResultMatchers.status().isFound()
+        );
+    }
+
+    @Test
+    public void testThatFindAuthorsSuccessfullyReturnsHttp404OKIfAuthorNotExists() throws Exception {
+        long fakeAuthorId = 37L;
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/authors/" + fakeAuthorId)
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andExpect(
+                MockMvcResultMatchers.status().isNotFound()
+        );
+    }
+
+    @Test
+    public void testThatFindAuthorsSuccessfullyReturnsAuthorIfAuthorExists() throws Exception {
+        AuthorEntity testAuthorA = TestDataUtil.createTestAuthorA();
+        testAuthorA.setId(null);
+        AuthorEntity savedTestAuthor = authorService.createAuthor(testAuthorA);
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/authors/" + savedTestAuthor.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$.id").isNumber()
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$.name").value(testAuthorA.getName())
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$.name").isString()
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$.age").isNumber()
         );
     }
 }
