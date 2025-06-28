@@ -7,10 +7,9 @@ import com.andriokar.database.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class BookController {
@@ -35,5 +34,12 @@ public class BookController {
         BookEntity createdBook = bookService.createBook(isbn, bookEntity);
 
         return new ResponseEntity<>(bookMapper.mapTo(createdBook), HttpStatus.CREATED);
+    }
+
+    @GetMapping(path = "/books")
+    public ResponseEntity<List<BookDto>> listBooks() {
+        List<BookEntity> books = bookService.findAll();
+
+        return new ResponseEntity<>(books.stream().map(bookMapper::mapTo).toList(), HttpStatus.OK);
     }
 }

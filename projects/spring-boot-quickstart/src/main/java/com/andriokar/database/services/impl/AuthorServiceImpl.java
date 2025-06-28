@@ -27,7 +27,8 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public List<AuthorEntity> findAll() {
-        return StreamSupport.stream(authorRepository
+        return StreamSupport.stream(
+                        authorRepository
                                 .findAll()
                                 .spliterator(),
                         false)

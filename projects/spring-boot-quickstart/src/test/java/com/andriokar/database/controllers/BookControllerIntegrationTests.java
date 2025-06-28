@@ -2,6 +2,7 @@ package com.andriokar.database.controllers;
 
 import com.andriokar.database.TestDataUtil;
 import com.andriokar.database.domain.dto.BookDto;
+import com.andriokar.database.domain.entities.AuthorEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -62,6 +63,58 @@ public class BookControllerIntegrationTests {
                 MockMvcResultMatchers.jsonPath("$.title").value(bookDto.getTitle())
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.title").isString()
+        );
+    }
+
+    @Test
+    public void testThatListBooksSuccessfullyReturnsHttp200OK() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/books")
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andExpect(
+                MockMvcResultMatchers.status().isOk()
+        );
+    }
+
+    @Test
+    public void testThatListBooksSuccessfullyReturnsListOfBooks() throws Exception {
+        BookDto bookDtoA = TestDataUtil.createTestBookDtoA(null);
+        BookDto bookDtoB = TestDataUtil.createTestBookDtoB(null);
+
+        String createBookJsonA = objectMapper.writeValueAsString(bookDtoA);
+        String createBookJsonB = objectMapper.writeValueAsString(bookDtoB);
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.put("/books/" + bookDtoA.getIsbn())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(createBookJsonA)
+        );
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.put("/books/" + bookDtoB.getIsbn())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(createBookJsonB)
+        );
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/books")
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[0]isbn").isString()
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[0]isbn").value(bookDtoA.getIsbn())
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[0]title").value(bookDtoA.getTitle())
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[0]title").isString()
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[1]isbn").isString()
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[1]isbn").value(bookDtoB.getIsbn())
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[1]title").value(bookDtoB.getTitle())
+        ).andExpect(
+                MockMvcResultMatchers.jsonPath("$[1]title").isString()
         );
     }
 }
