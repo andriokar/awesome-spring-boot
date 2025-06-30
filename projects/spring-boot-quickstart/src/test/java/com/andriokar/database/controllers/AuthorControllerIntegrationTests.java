@@ -128,7 +128,7 @@ public class AuthorControllerIntegrationTests {
     }
 
     @Test
-    public void testThatFindAuthorsSuccessfullyReturnsHttp302OKIfAuthorExists() throws Exception {
+    public void testThatGetAuthorSuccessfullyReturnsHttp302OKIfAuthorExists() throws Exception {
         AuthorEntity testAuthorA = TestDataUtil.createTestAuthorA();
         testAuthorA.setId(null);
         AuthorEntity savedTestAuthor = authorService.createAuthor(testAuthorA);
@@ -142,7 +142,7 @@ public class AuthorControllerIntegrationTests {
     }
 
     @Test
-    public void testThatFindAuthorsSuccessfullyReturnsHttp404OKIfAuthorNotExists() throws Exception {
+    public void testThatGetAuthorSuccessfullyReturnsHttp404IfAuthorNotExists() throws Exception {
         long fakeAuthorId = 37L;
 
         mockMvc.perform(
@@ -154,7 +154,7 @@ public class AuthorControllerIntegrationTests {
     }
 
     @Test
-    public void testThatFindAuthorsSuccessfullyReturnsAuthorIfAuthorExists() throws Exception {
+    public void testThatGetAuthorSuccessfullyReturnsAuthorIfAuthorExists() throws Exception {
         AuthorEntity testAuthorA = TestDataUtil.createTestAuthorA();
         testAuthorA.setId(null);
         AuthorEntity savedTestAuthor = authorService.createAuthor(testAuthorA);

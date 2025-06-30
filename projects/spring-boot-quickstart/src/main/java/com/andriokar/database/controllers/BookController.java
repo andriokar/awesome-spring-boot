@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class BookController {
@@ -41,5 +42,16 @@ public class BookController {
         List<BookEntity> books = bookService.findAll();
 
         return new ResponseEntity<>(books.stream().map(bookMapper::mapTo).toList(), HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/books/{isbn}")
+    public ResponseEntity<BookDto> getBook(@PathVariable(name = "isbn") String isbn) {
+        Optional<BookEntity> book = bookService.findOne(isbn);
+
+        return book.map(authorEntity -> new ResponseEntity<>(
+                        bookMapper.mapTo(authorEntity),
+                        HttpStatus.FOUND)
+                )
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 }
